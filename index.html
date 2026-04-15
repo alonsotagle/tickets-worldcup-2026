@@ -194,6 +194,38 @@
       border-color: #1d4ed8;
     }
 
+    .language-switcher {
+      display: inline-flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .language-option {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: #f8fafc;
+      color: #1f2937;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .language-option:hover,
+    .language-option:focus-visible {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      outline: none;
+    }
+
+    .language-option.active {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
     footer {
       margin-top: 28px;
       text-align: center;
@@ -215,30 +247,34 @@
 </head>
 <body>
   <div class="page">
+    <div class="language-switcher" role="tablist" aria-label="Change language">
+      <button type="button" class="language-option active" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="language-option" data-lang="es" aria-pressed="true">ES</button>
+    </div>
     <section class="hero">
       <span class="badge">World Cup 2026</span>
-      <h1>Entradas a la venta</h1>
-      <p>Entradas disponibles para los partidos de la próxima Copa Mundial de la FIFA 2026 en Norteamérica.</p>
+      <h1 id="hero-title">Entradas a la venta</h1>
+      <p id="hero-description">Entradas disponibles para los partidos de la próxima Copa Mundial de la FIFA 2026 en Norteamérica.</p>
     </section>
 
     <div class="countdown" aria-live="polite">
-      <div>Cuenta regresiva para el inicio del primer partido del mundial</div>
+      <div id="countdown-label">Cuenta regresiva para el inicio del primer partido del mundial</div>
       <span id="countdown-value">Cargando...</span>
-      <small>11 de junio de 2026</small>
+      <small id="countdown-date">11 de junio de 2026</small>
     </div>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Partido</th>
-            <th>Categoría</th>
-            <th>Fecha</th>
-            <th>Ciudad</th>
-            <th>Selecciones</th>
-            <th># Boletos (asientos juntos)</th>
-            <th>
-              Precio
+            <th id="col-match">Partido</th>
+            <th id="col-category">Categoría</th>
+            <th id="col-date">Fecha</th>
+            <th id="col-city">Ciudad</th>
+            <th id="col-teams">Selecciones</th>
+            <th id="col-tickets"># Boletos (asientos juntos)</th>
+            <th id="col-price">
+              <span class="price-label">Precio</span>
               <div class="currency-switcher" role="tablist" aria-label="Selecciona moneda">
                 <button type="button" class="currency-option active" data-currency="MXN" aria-pressed="true">🇲🇽</button>
                 <button type="button" class="currency-option" data-currency="USD" aria-pressed="false">🇺🇸</button>
@@ -262,7 +298,7 @@
     </div>
 
     <div class="cta-wrap">
-      <a class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Comprar boletos</a>
+      <a id="contact-button" class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Informes</a>
     </div>
   </div>
 
@@ -289,7 +325,81 @@
 
     const priceCells = document.querySelectorAll('.price');
     const currencyButtons = document.querySelectorAll('.currency-option');
+    const languageButtons = document.querySelectorAll('.language-option');
+    const heroTitle = document.getElementById('hero-title');
+    const heroDescription = document.getElementById('hero-description');
+    const countdownLabel = document.getElementById('countdown-label');
+    const countdownDate = document.getElementById('countdown-date');
+    const colMatch = document.getElementById('col-match');
+    const colCategory = document.getElementById('col-category');
+    const colDate = document.getElementById('col-date');
+    const colCity = document.getElementById('col-city');
+    const colTeams = document.getElementById('col-teams');
+    const colTickets = document.getElementById('col-tickets');
+    const colPrice = document.getElementById('col-price');
+    const colPriceLabel = colPrice.querySelector('.price-label');
+    const contactButton = document.getElementById('contact-button');
     let selectedCurrency = 'MXN';
+    let selectedLanguage = 'es';
+
+    const translations = {
+      es: {
+        title: 'Entradas a la venta',
+        description: 'Entradas disponibles para los partidos de la próxima Copa Mundial de la FIFA 2026 en Norteamérica.',
+        countdown: 'Cuenta regresiva para el inicio del primer partido del mundial',
+        date: '11 de junio de 2026',
+        match: 'Partido',
+        category: 'Categoría',
+        dateHeader: 'Fecha',
+        city: 'Ciudad',
+        teams: 'Selecciones',
+        tickets: '# Boletos (asientos juntos)',
+        price: 'Precio',
+        contact: 'Informes',
+        pageTitle: 'Entradas a la venta FIFA World Cup 2026',
+      },
+      en: {
+        title: 'Tickets on sale',
+        description: 'Tickets available for the upcoming FIFA World Cup 2026 matches in North America.',
+        countdown: 'Countdown to the first World Cup match',
+        date: 'June 11, 2026',
+        match: 'Match',
+        category: 'Category',
+        dateHeader: 'Date',
+        city: 'City',
+        teams: 'Teams',
+        tickets: '# Tickets (seats together)',
+        price: 'Price',
+        contact: 'Contact',
+        pageTitle: 'FIFA World Cup 2026 Tickets on Sale',
+      },
+    };
+
+    function updateLanguage(lang) {
+      const text = translations[lang];
+      selectedLanguage = lang;
+      document.documentElement.lang = lang;
+      document.title = text.pageTitle;
+      heroTitle.textContent = text.title;
+      heroDescription.textContent = text.description;
+      countdownLabel.textContent = text.countdown;
+      countdownDate.textContent = text.date;
+      colMatch.textContent = text.match;
+      colCategory.textContent = text.category;
+      colDate.textContent = text.dateHeader;
+      colCity.textContent = text.city;
+      colTeams.textContent = text.teams;
+      colTickets.textContent = text.tickets;
+      if (colPriceLabel) {
+        colPriceLabel.textContent = text.price;
+      }
+      contactButton.textContent = text.contact;
+      languageButtons.forEach((btn) => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
 
     function updatePrices(currency) {
       priceCells.forEach((cell) => {
@@ -321,6 +431,15 @@
       });
     });
 
+    languageButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const lang = button.dataset.lang;
+        if (lang === selectedLanguage) return;
+        updateLanguage(lang);
+      });
+    });
+
+    updateLanguage(selectedLanguage);
     updatePrices(selectedCurrency);
     updateCountdown();
     setInterval(updateCountdown, 1000);
