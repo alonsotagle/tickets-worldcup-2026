@@ -195,11 +195,12 @@
     }
 
     .language-switcher {
-      display: inline-flex;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
       gap: 8px;
       margin-bottom: 24px;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     .language-option {
@@ -248,8 +249,8 @@
 <body>
   <div class="page">
     <div class="language-switcher" role="tablist" aria-label="Change language">
-      <button type="button" class="language-option active" data-lang="en" aria-pressed="false">EN</button>
-      <button type="button" class="language-option" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="language-option active" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="language-option" data-lang="es" aria-pressed="false">ES</button>
     </div>
     <section class="hero">
       <span class="badge">World Cup 2026</span>
@@ -298,7 +299,7 @@
     </div>
 
     <div class="cta-wrap">
-      <a id="contact-button" class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Informes</a>
+      <a id="contact-button" class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-en="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-es="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Informes</a>
     </div>
   </div>
 
@@ -340,7 +341,7 @@
     const colPriceLabel = colPrice.querySelector('.price-label');
     const contactButton = document.getElementById('contact-button');
     let selectedCurrency = 'MXN';
-    let selectedLanguage = 'es';
+    let selectedLanguage = 'en';
 
     const translations = {
       es: {
@@ -356,7 +357,9 @@
         tickets: '# Boletos (asientos juntos)',
         price: 'Precio',
         contact: 'Informes',
+        contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0',
         pageTitle: 'Entradas a la venta FIFA World Cup 2026',
+        languageSwitcherLabel: 'Cambiar idioma',
       },
       en: {
         title: 'Tickets on sale',
@@ -371,7 +374,9 @@
         tickets: '# Tickets (seats together)',
         price: 'Price',
         contact: 'Contact',
+        contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0',
         pageTitle: 'FIFA World Cup 2026 Tickets on Sale',
+        languageSwitcherLabel: 'Change language',
       },
     };
 
@@ -394,6 +399,8 @@
         colPriceLabel.textContent = text.price;
       }
       contactButton.textContent = text.contact;
+      contactButton.href = text.contactUrl;
+      document.querySelector('.language-switcher').setAttribute('aria-label', text.languageSwitcherLabel);
       languageButtons.forEach((btn) => {
         const isActive = btn.dataset.lang === lang;
         btn.classList.toggle('active', isActive);
