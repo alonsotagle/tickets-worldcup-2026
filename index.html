@@ -50,6 +50,18 @@
       line-height: 1.8;
     }
 
+    .hero-note {
+      margin: 18px auto 0;
+      max-width: 760px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
     .countdown {
       display: grid;
       place-items: center;
@@ -254,8 +266,9 @@
     </div>
     <section class="hero">
       <span class="badge">World Cup 2026</span>
-      <h1 id="hero-title">Entradas a la venta</h1>
-      <p id="hero-description">Entradas disponibles para los partidos de la próxima Copa Mundial de la FIFA 2026 en Norteamérica.</p>
+      <h1 id="hero-title">Boletos disponibles para el Mundial 2026</h1>
+      <p id="hero-description">Estoy compartiendo estos boletos con familiares y amigos. Aquí puedes ver los partidos disponibles, la categoría de cada boleto y el precio por boleto.</p>
+      <div id="hero-note" class="hero-note">Importante: los precios publicados son por boleto y la cantidad indicada corresponde a asientos juntos. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.</div>
     </section>
 
     <div class="countdown" aria-live="polite">
@@ -299,8 +312,10 @@
     </div>
 
     <div class="cta-wrap">
-      <a id="contact-button" class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-en="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-es="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Informes</a>
+      <a id="contact-button" class="cta-button" href="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-en="https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0" data-href-es="https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Escríbeme por WhatsApp</a>
     </div>
+
+    <footer id="page-footer">Disponibilidad sujeta a cambios. Si te interesa algún partido, mándame mensaje por WhatsApp para confirmar disponibilidad, forma de pago y cualquier detalle adicional.</footer>
   </div>
 
   <script>
@@ -329,6 +344,7 @@
     const languageButtons = document.querySelectorAll('.language-option');
     const heroTitle = document.getElementById('hero-title');
     const heroDescription = document.getElementById('hero-description');
+    const heroNote = document.getElementById('hero-note');
     const countdownLabel = document.getElementById('countdown-label');
     const countdownDate = document.getElementById('countdown-date');
     const colMatch = document.getElementById('col-match');
@@ -340,13 +356,15 @@
     const colPrice = document.getElementById('col-price');
     const colPriceLabel = colPrice.querySelector('.price-label');
     const contactButton = document.getElementById('contact-button');
+    const pageFooter = document.getElementById('page-footer');
     let selectedCurrency = 'MXN';
     let selectedLanguage = 'en';
 
     const translations = {
       es: {
-        title: 'Entradas a la venta',
-        description: 'Entradas disponibles para los partidos de la próxima Copa Mundial de la FIFA 2026 en Norteamérica.',
+        title: 'Boletos disponibles para el Mundial 2026',
+        description: 'Estoy compartiendo estos boletos con familiares y amigos. Aquí puedes ver los partidos disponibles, la categoría de cada boleto y el precio por boleto.',
+        note: 'Importante: los precios publicados son por boleto y la cantidad indicada corresponde a asientos juntos. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.',
         countdown: 'Cuenta regresiva para el inicio del primer partido del mundial',
         date: '11 de junio de 2026',
         match: 'Partido',
@@ -356,14 +374,16 @@
         teams: 'Selecciones',
         tickets: '# Boletos (asientos juntos)',
         price: 'Precio por boleto',
-        contact: 'Informes',
+        contact: 'Escríbeme por WhatsApp',
         contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0',
-        pageTitle: 'Entradas a la venta FIFA World Cup 2026',
+        footer: 'Disponibilidad sujeta a cambios. Si te interesa algún partido, mándame mensaje por WhatsApp para confirmar disponibilidad, forma de pago y cualquier detalle adicional.',
+        pageTitle: 'Boletos disponibles para el Mundial 2026',
         languageSwitcherLabel: 'Cambiar idioma',
       },
       en: {
-        title: 'Tickets on sale',
-        description: 'Tickets available for the upcoming FIFA World Cup 2026 matches in North America.',
+        title: 'World Cup 2026 tickets available',
+        description: 'I am sharing these tickets with family and friends. Here you can see the available matches, each ticket category, and the price per ticket.',
+        note: 'Important: prices shown are per ticket, and the ticket count indicates seats together. If you are interested in a match, message me on WhatsApp to confirm availability and details.',
         countdown: 'Countdown to the first World Cup match',
         date: 'June 11, 2026',
         match: 'Match',
@@ -373,9 +393,10 @@
         teams: 'Teams',
         tickets: '# Tickets (seats together)',
         price: 'Price per ticket',
-        contact: 'Contact',
+        contact: 'Message me on WhatsApp',
         contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0',
-        pageTitle: 'FIFA World Cup 2026 Tickets on Sale',
+        footer: 'Availability may change. If you are interested in a match, message me on WhatsApp to confirm availability, payment details, and any other questions.',
+        pageTitle: 'World Cup 2026 tickets available',
         languageSwitcherLabel: 'Change language',
       },
     };
@@ -387,6 +408,7 @@
       document.title = text.pageTitle;
       heroTitle.textContent = text.title;
       heroDescription.textContent = text.description;
+      heroNote.textContent = text.note;
       countdownLabel.textContent = text.countdown;
       countdownDate.textContent = text.date;
       colMatch.textContent = text.match;
@@ -400,6 +422,7 @@
       }
       contactButton.textContent = text.contact;
       contactButton.href = text.contactUrl;
+      pageFooter.textContent = text.footer;
       document.querySelector('.language-switcher').setAttribute('aria-label', text.languageSwitcherLabel);
       languageButtons.forEach((btn) => {
         const isActive = btn.dataset.lang === lang;
