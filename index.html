@@ -63,36 +63,6 @@
       line-height: 1.65;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin: 22px auto 0;
-      max-width: 920px;
-    }
-
-    .trust-card {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.06);
-      text-align: left;
-    }
-
-    .trust-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #0f172a;
-      font-size: 0.98rem;
-      letter-spacing: -0.01em;
-    }
-
-    .trust-card span {
-      color: #475569;
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
 
     .countdown {
       display: grid;
@@ -284,12 +254,6 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 800px) {
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 640px) {
       .page {
         padding: 24px 16px 32px;
@@ -313,11 +277,6 @@
       <h1 id="hero-title">Boletos disponibles para el Mundial 2026</h1>
       <p id="hero-description">Por ahora estoy compartiendo estos boletos primero con familiares y amigos. Aquí puedes ver los partidos disponibles, la categoría de cada boleto y el precio por boleto.</p>
       <div id="hero-note" class="hero-note">Importante: los precios publicados son por boleto y la cantidad indicada corresponde a asientos juntos. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.</div>
-      <div class="trust-grid" aria-label="Highlights">
-        <div class="trust-card"><strong id="trust-title-1">Atención directa</strong><span id="trust-text-1">La disponibilidad y cualquier duda se confirma directamente por WhatsApp.</span></div>
-        <div class="trust-card"><strong id="trust-title-2">Asientos juntos</strong><span id="trust-text-2">La cantidad publicada corresponde a boletos juntos dentro de la misma compra.</span></div>
-        <div class="trust-card"><strong id="trust-title-3">Precio claro</strong><span id="trust-text-3">Los precios publicados son por boleto para que la comparación sea simple y transparente.</span></div>
-      </div>
     </section>
 
     <div class="countdown" aria-live="polite">
@@ -396,12 +355,6 @@
     const heroNote = document.getElementById('hero-note');
     const countdownLabel = document.getElementById('countdown-label');
     const countdownDate = document.getElementById('countdown-date');
-    const trustTitle1 = document.getElementById('trust-title-1');
-    const trustText1 = document.getElementById('trust-text-1');
-    const trustTitle2 = document.getElementById('trust-title-2');
-    const trustText2 = document.getElementById('trust-text-2');
-    const trustTitle3 = document.getElementById('trust-title-3');
-    const trustText3 = document.getElementById('trust-text-3');
     const colMatch = document.getElementById('col-match');
     const colCategory = document.getElementById('col-category');
     const colDate = document.getElementById('col-date');
@@ -422,12 +375,6 @@
         note: 'Importante: los precios publicados son por boleto y la cantidad indicada corresponde a asientos juntos. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.',
         countdown: 'Cuenta regresiva para el inicio del primer partido del mundial',
         date: '11 de junio de 2026',
-        trustTitle1: 'Atención directa',
-        trustText1: 'La disponibilidad y cualquier duda se confirma directamente por WhatsApp.',
-        trustTitle2: 'Asientos juntos',
-        trustText2: 'La cantidad publicada corresponde a boletos juntos dentro de la misma compra.',
-        trustTitle3: 'Precio claro',
-        trustText3: 'Los precios publicados son por boleto para que la comparación sea simple y transparente.',
         match: 'Partido',
         category: 'Categoría',
         dateHeader: 'Fecha',
@@ -447,12 +394,6 @@
         note: 'Important: prices shown are per ticket, and the ticket count indicates seats together. If you are interested in a match, message me on WhatsApp to confirm availability and details.',
         countdown: 'Countdown to the first World Cup match',
         date: 'June 11, 2026',
-        trustTitle1: 'Direct contact',
-        trustText1: 'Availability and any questions are confirmed directly on WhatsApp.',
-        trustTitle2: 'Seats together',
-        trustText2: 'The quantity shown reflects seats together in the same purchase.',
-        trustTitle3: 'Clear pricing',
-        trustText3: 'Prices are shown per ticket so everything is simple and transparent.',
         match: 'Match',
         category: 'Category',
         dateHeader: 'Date',
@@ -478,12 +419,6 @@
       heroNote.textContent = text.note;
       countdownLabel.textContent = text.countdown;
       countdownDate.textContent = text.date;
-      trustTitle1.textContent = text.trustTitle1;
-      trustText1.textContent = text.trustText1;
-      trustTitle2.textContent = text.trustTitle2;
-      trustText2.textContent = text.trustText2;
-      trustTitle3.textContent = text.trustTitle3;
-      trustText3.textContent = text.trustText3;
       colMatch.textContent = text.match;
       colCategory.textContent = text.category;
       colDate.textContent = text.dateHeader;
