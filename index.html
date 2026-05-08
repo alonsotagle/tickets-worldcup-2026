@@ -290,11 +290,11 @@
         <thead>
           <tr>
             <th id="col-match">Partido</th>
-            <th id="col-category">Categoría</th>
             <th id="col-date">Fecha</th>
             <th id="col-city">Ciudad</th>
             <th id="col-teams">Selecciones</th>
-            <th id="col-tickets"># Boletos (asientos juntos)</th>
+            <th id="col-tickets">Boletos disponibles</th>
+            <th id="col-category">Categoría del asiento</th>
             <th id="col-price">
               <span class="price-label">Precio por boleto</span>
               <div class="currency-switcher" role="tablist" aria-label="Selecciona moneda">
@@ -306,14 +306,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>M2</td><td>2</td><td>11/06/2026</td><td>Guadalajara</td><td class="team-cell" data-team-en="South Korea vs. Czech Republic" data-team-es="Corea del Sur vs. República Checa">South Korea vs. Czech Republic</td><td>1</td><td class="price" data-price-mxn="MXN$12,000.00" data-price-usd="USD$700.00" data-price-cad="CAD$900.00">MXN$12,000.00</td></tr>
-          <tr><td>M6</td><td>1</td><td>13/06/2026</td><td>Vancouver</td><td class="team-cell" data-team-en="Australia vs. Turkey" data-team-es="Australia vs. Turquía">Australia vs. Turkey</td><td>4</td><td class="price" data-price-mxn="MXN$15,000.00" data-price-usd="USD$900.00" data-price-cad="CAD$1,100.00">MXN$15,000.00</td></tr>
-          <tr><td>M16</td><td>1</td><td>15/06/2026</td><td>Seattle</td><td class="team-cell" data-team-en="Belgium vs. Egypt" data-team-es="Bélgica vs. Egipto">Belgium vs. Egypt</td><td>1</td><td class="price" data-price-mxn="MXN$15,000.00" data-price-usd="USD$900.00" data-price-cad="CAD$1,100.00">MXN$15,000.00</td></tr>
-          <tr><td>M24</td><td>2</td><td>17/06/2026</td><td>Ciudad de México</td><td class="team-cell" data-team-en="Uzbekistan vs. Colombia" data-team-es="Uzbekistán vs. Colombia">Uzbekistan vs. Colombia</td><td>2</td><td class="price" data-price-mxn="MXN$18,000.00" data-price-usd="USD$1,100.00" data-price-cad="CAD$1,300.00">MXN$18,000.00</td></tr>
-          <tr><td>M40</td><td>1</td><td>21/06/2026</td><td>Vancouver</td><td class="team-cell" data-team-en="New Zealand vs. Egypt" data-team-es="Nueva Zelanda vs. Egipto">New Zealand vs. Egypt</td><td>4</td><td class="price" data-price-mxn="MXN$10,000.00" data-price-usd="USD$600.00" data-price-cad="CAD$900.00">MXN$10,000.00</td></tr>
-          <tr><td>M48</td><td>2</td><td>23/06/2026</td><td>Guadalajara</td><td class="team-cell" data-team-en="Colombia vs. DR Congo" data-team-es="Colombia vs. RD Congo">Colombia vs. DR Congo</td><td>2</td><td class="price" data-price-mxn="MXN$16,000.00" data-price-usd="USD$1,000.00" data-price-cad="CAD$1,200.00">MXN$16,000.00</td></tr>
-          <tr><td>M60</td><td>1</td><td>25/06/2026</td><td>San Francisco</td><td class="team-cell" data-team-en="Paraguay vs. Australia" data-team-es="Paraguay vs. Australia">Paraguay vs. Australia</td><td>2</td><td class="price" data-price-mxn="MXN$10,000.00" data-price-usd="USD$600.00" data-price-cad="CAD$900.00">MXN$10,000.00</td></tr>
-          <tr><td>M67</td><td>1</td><td>27/06/2026</td><td>New York</td><td class="team-cell" data-team-en="Panama vs. England" data-team-es="Panamá vs. Inglaterra">Panama vs. England</td><td>2</td><td class="price" data-price-mxn="MXN$20,000.00" data-price-usd="USD$1,200.00" data-price-cad="CAD$1,500.00">MXN$20,000.00</td></tr>
+          <tr><td>M2</td><td>11/06/2026</td><td>Guadalajara</td><td class="team-cell" data-team-en="South Korea vs. Czech Republic" data-team-es="Corea del Sur vs. República Checa">South Korea vs. Czech Republic</td><td class="ticket-count-cell" data-count="1">1 left</td><td class="category-cell" data-category="2">Cat. 2</td><td class="price" data-price-mxn="MXN$12,000.00" data-price-usd="USD$700.00" data-price-cad="CAD$900.00">MXN$12,000.00</td></tr>
+          <tr><td>M6</td><td>13/06/2026</td><td>Vancouver</td><td class="team-cell" data-team-en="Australia vs. Turkey" data-team-es="Australia vs. Turquía">Australia vs. Turkey</td><td class="ticket-count-cell" data-count="4">4 left</td><td class="category-cell" data-category="1">Cat. 1</td><td class="price" data-price-mxn="MXN$15,000.00" data-price-usd="USD$900.00" data-price-cad="CAD$1,100.00">MXN$15,000.00</td></tr>
+          <tr><td>M16</td><td>15/06/2026</td><td>Seattle</td><td class="team-cell" data-team-en="Belgium vs. Egypt" data-team-es="Bélgica vs. Egipto">Belgium vs. Egypt</td><td class="ticket-count-cell" data-count="1">1 left</td><td class="category-cell" data-category="1">Cat. 1</td><td class="price" data-price-mxn="MXN$15,000.00" data-price-usd="USD$900.00" data-price-cad="CAD$1,100.00">MXN$15,000.00</td></tr>
+          <tr><td>M24</td><td>17/06/2026</td><td>Ciudad de México</td><td class="team-cell" data-team-en="Uzbekistan vs. Colombia" data-team-es="Uzbekistán vs. Colombia">Uzbekistan vs. Colombia</td><td class="ticket-count-cell" data-count="2">2 left</td><td class="category-cell" data-category="2">Cat. 2</td><td class="price" data-price-mxn="MXN$18,000.00" data-price-usd="USD$1,100.00" data-price-cad="CAD$1,300.00">MXN$18,000.00</td></tr>
+          <tr><td>M40</td><td>21/06/2026</td><td>Vancouver</td><td class="team-cell" data-team-en="New Zealand vs. Egypt" data-team-es="Nueva Zelanda vs. Egipto">New Zealand vs. Egypt</td><td class="ticket-count-cell" data-count="4">4 left</td><td class="category-cell" data-category="1">Cat. 1</td><td class="price" data-price-mxn="MXN$10,000.00" data-price-usd="USD$600.00" data-price-cad="CAD$900.00">MXN$10,000.00</td></tr>
+          <tr><td>M48</td><td>23/06/2026</td><td>Guadalajara</td><td class="team-cell" data-team-en="Colombia vs. DR Congo" data-team-es="Colombia vs. RD Congo">Colombia vs. DR Congo</td><td class="ticket-count-cell" data-count="2">2 left</td><td class="category-cell" data-category="2">Cat. 2</td><td class="price" data-price-mxn="MXN$16,000.00" data-price-usd="USD$1,000.00" data-price-cad="CAD$1,200.00">MXN$16,000.00</td></tr>
+          <tr><td>M60</td><td>25/06/2026</td><td>San Francisco</td><td class="team-cell" data-team-en="Paraguay vs. Australia" data-team-es="Paraguay vs. Australia">Paraguay vs. Australia</td><td class="ticket-count-cell" data-count="2">2 left</td><td class="category-cell" data-category="1">Cat. 1</td><td class="price" data-price-mxn="MXN$10,000.00" data-price-usd="USD$600.00" data-price-cad="CAD$900.00">MXN$10,000.00</td></tr>
+          <tr><td>M67</td><td>27/06/2026</td><td>New York</td><td class="team-cell" data-team-en="Panama vs. England" data-team-es="Panamá vs. Inglaterra">Panama vs. England</td><td class="ticket-count-cell" data-count="2">2 left</td><td class="category-cell" data-category="1">Cat. 1</td><td class="price" data-price-mxn="MXN$20,000.00" data-price-usd="USD$1,200.00" data-price-cad="CAD$1,500.00">MXN$20,000.00</td></tr>
         </tbody>
       </table>
     </div>
@@ -348,6 +348,8 @@
 
     const priceCells = document.querySelectorAll('.price');
     const teamCells = document.querySelectorAll('.team-cell');
+    const ticketCountCells = document.querySelectorAll('.ticket-count-cell');
+    const categoryCells = document.querySelectorAll('.category-cell');
     const currencyButtons = document.querySelectorAll('.currency-option');
     const languageButtons = document.querySelectorAll('.language-option');
     const heroTitle = document.getElementById('hero-title');
@@ -371,16 +373,16 @@
     const translations = {
       es: {
         title: 'Boletos disponibles para el Mundial 2026',
-        description: 'Por ahora estoy compartiendo estos boletos primero con familiares y amigos. Aquí puedes ver los partidos disponibles, la categoría de cada boleto y el precio por boleto.',
-        note: 'Importante: los precios publicados son por boleto y la cantidad indicada corresponde a asientos juntos. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.',
+        description: 'Por ahora estoy compartiendo estos boletos primero con familiares y amigos. Aquí puedes ver los partidos disponibles, los boletos disponibles, la categoría del asiento y el precio por boleto.',
+        note: 'Importante: los precios publicados son por boleto. “Boletos disponibles” es la cantidad que sigue a la venta y “Categoría del asiento” es la categoría oficial de FIFA. Si te interesa algún partido, escríbeme por WhatsApp para confirmar disponibilidad y detalles.',
         countdown: 'Cuenta regresiva para el inicio del primer partido del mundial',
         date: '11 de junio de 2026',
         match: 'Partido',
-        category: 'Categoría',
+        category: 'Categoría del asiento',
         dateHeader: 'Fecha',
         city: 'Ciudad',
         teams: 'Selecciones',
-        tickets: '# Boletos (asientos juntos)',
+        tickets: 'Boletos disponibles',
         price: 'Precio por boleto',
         contact: 'Escríbeme por WhatsApp',
         contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hola%21+Me+gustar%C3%ADa+recibir+m%C3%A1s+informaci%C3%B3n+sobre+los+boletos+del+mundial&type=phone_number&app_absent=0',
@@ -390,16 +392,16 @@
       },
       en: {
         title: 'World Cup 2026 tickets available',
-        description: 'For now, I am sharing these tickets with family and friends first. Here you can see the available matches, each ticket category, and the price per ticket.',
-        note: 'Important: prices shown are per ticket, and the ticket count indicates seats together. If you are interested in a match, message me on WhatsApp to confirm availability and details.',
+        description: 'For now, I am sharing these tickets with family and friends first. Here you can see the available matches, tickets left, seat category, and the price per ticket.',
+        note: 'Important: prices shown are per ticket. “Tickets left” is the quantity still available, and “Seat category” is the official FIFA seating category. If you are interested in a match, message me on WhatsApp to confirm availability and details.',
         countdown: 'Countdown to the first World Cup match',
         date: 'June 11, 2026',
         match: 'Match',
-        category: 'Category',
+        category: 'Seat category',
         dateHeader: 'Date',
         city: 'City',
         teams: 'Teams',
-        tickets: '# Tickets (seats together)',
+        tickets: 'Tickets left',
         price: 'Price per ticket',
         contact: 'Message me on WhatsApp',
         contactUrl: 'https://api.whatsapp.com/send/?phone=525510819482&text=Hello%21+I+would+like+more+information+about+the+World+Cup+tickets&type=phone_number&app_absent=0',
@@ -433,6 +435,13 @@
       pageFooter.textContent = text.footer;
       teamCells.forEach((cell) => {
         cell.textContent = lang === 'es' ? cell.dataset.teamEs : cell.dataset.teamEn;
+      });
+      ticketCountCells.forEach((cell) => {
+        const count = cell.dataset.count;
+        cell.textContent = lang === 'es' ? `${count} disponibles` : `${count} left`;
+      });
+      categoryCells.forEach((cell) => {
+        cell.textContent = `Cat. ${cell.dataset.category}`;
       });
       document.querySelector('.language-switcher').setAttribute('aria-label', text.languageSwitcherLabel);
       languageButtons.forEach((btn) => {
